@@ -94,14 +94,15 @@ public class User {
     }
 
     @Override
-    public boolean equals(Object o) {
+    public final boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof User user)) return false;
-        return Objects.equals(getId(), user.getId()) && Objects.equals(getName(), user.getName()) && Objects.equals(getEmail(), user.getEmail()) && Objects.equals(getPhone(), user.getPhone()) && Objects.equals(getBirthDate(), user.getBirthDate()) && Objects.equals(getPassword(), user.getPassword());
+
+        return Objects.equals(getId(), user.getId());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getName(), getEmail(), getPhone(), getBirthDate(), getPassword());
+        return Objects.hashCode(getId());
     }
 }
